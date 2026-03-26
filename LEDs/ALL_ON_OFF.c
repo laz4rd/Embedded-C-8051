@@ -1,17 +1,20 @@
 #include <reg51.h>
 
 void delay() {
-  unsigned int i,j;
-  for (i = 0;i < 1000;i++) {
-    for (j = 0;j<1200;j++) {
-
-    }
+  int i;
+  TMOD = 0x10;
+  for (i = 0; i < 20; i++) {
+    TL1 = 0xAE;
+    TH1 = 0x3C;
+    TR1 = 1 while (TF1 == 0) {}
+    TR1 = 0;
+    TF1 = 0;
   }
 }
 
 void main() {
-  while(1) {
-    P1 = 0xFF; //11111111
+  while (1) {
+    P1 = 0xFF; // 11111111
     delay();
     P1 = 0x00;
     delay();
